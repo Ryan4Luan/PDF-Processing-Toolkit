@@ -23,4 +23,6 @@ Follow these steps to get your development environment set up:
    ```bash
    git clone https://github.com/Ryan4Luan/PDF-Processing-Toolkit.git
 
-cd PDF-Processing-Toolkit
+2. **Install the required Python packages**
+   ```bash
+   pip install -r requirements.txt

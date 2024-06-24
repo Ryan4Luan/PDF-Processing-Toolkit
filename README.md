@@ -22,3 +22,5 @@ Follow these steps to get your development environment set up:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Ryan4Luan/PDF-Processing-Toolkit.git
+
+cd PDF-Processing-Toolkit

@@ -1,14 +1,9 @@
-import os
 import sys
-from pdf_processing import extract_text_from_images, clean_text_advanced, extract_and_save_images, convert_pdf_to_images_in_memory
-
-def save_text(file_path, text):
-    with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(text)
-
-def ensure_dir(file_path):
-    if not os.path.exists(file_path):
-        os.makedirs(file_path)
+import os
+from pdf_manager import extract_images_from_pdf, convert_pdf_to_images
+from image_processor import extract_text_from_images
+from text_processor import clean_text_advanced
+from utilities import ensure_dir, save_text
 
 def main():
     print("Please enter the full path to the PDF file:")
@@ -29,10 +24,10 @@ def main():
     print("\nExtracting embedded images...")
     embedded_images_dir = os.path.join(output_dir, 'embedded_images')
     ensure_dir(embedded_images_dir)
-    extract_and_save_images(pdf_path, embedded_images_dir)
+    extract_images_from_pdf(pdf_path, embedded_images_dir)
 
     print("\nConverting PDF pages to images and extracting text...")
-    converted_images = convert_pdf_to_images_in_memory(pdf_path)
+    converted_images = convert_pdf_to_images(pdf_path)
 
     print("\nExtracting text from images...")
     texts = extract_text_from_images(converted_images)  # Pass the image objects directly
